@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+    <div id="page-container">
+        <header>
+            <h1 align="center"><strong>MuSQL: IiIiIT Music Database</strong></h1>
+            <table style="width:100%" style="border-top:1px dotted #4b4b4b">
+                <tr>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" class="highlight" href="/artists">Artists</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/index">Home</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/spotlight">Spotlight</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/playlist">Playlist</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/search">Search</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/about">About</a></p>
+                    </td>
+
+                </tr>
+            </table>
+        </header>
+
+        <div class = "top">
+            <p align="center">Welcome to MuSQL: the IiIiIT Music Database.<br /><sub>It's all lite.</sub></p>
+        </div>
+
+        <div class="content">
+            <h2>Albums tagged Artist: <i>{{ artist_name }}</i></h2>
+
+            {% for row in groups_of_three %}
+                <div class="row">
+                    {% for elem in row %}
+                        <a id="card-link" style="display:inline-block" href="/songs/{{ elem[0] }}/{{ elem[1] }}">
+                        <div class="item">
+                            <img src="{{ url_for('static', filename="assets/album/artist{}/{}".format(elem[0], elem[4])) }}" id="card-image" />
+                            <p>{{ elem[2] }} - {{ elem[3] }}</p>
+                            <p>Number of Songs: 5</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <footer style="width:100%">
+        <table style="width:100%">
+        <tr>
+            <td style="width:1720px">
+                <p align="left"><b>Created by Swarang J. and Hari S.</b></p>
+            </td>
+            <td>
+                <p align="right"><a id="menu-link" href="/about">About Us</a></p>
+            </td>
+        </tr>
+        </table>
+
+    </footer>
+{% endblock %}

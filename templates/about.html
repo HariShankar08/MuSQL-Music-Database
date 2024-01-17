@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block content %}
+    <div id="page-container">
+        <header>
+            <h1 align="center"><strong>MuSQL: IiIiIT Music Database</strong></h1>
+            <table style="width:100%" style="border-top:1px dotted #4b4b4b">
+                <tr>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/artists">Artists</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/index">Home</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/spotlight">Spotlight</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/playlist">Playlist</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/search">Search</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" class="highlight" href="/about">About</a></p>
+                    </td>
+
+                </tr>
+            </table>
+        </header>
+
+        <div class = "top">
+            <p align="center">Welcome to MuSQL: the IiIiIT Music Database.<br /><sub>It's all lite.</sub></p>
+        </div>
+
+        <div class="content">
+            <h2>About</h2>
+            <br />
+
+            <p>
+                Our website is an Internet Music Database, or IMdB for short. <br />
+                Our purpose is to provide music lovers with a comprehensive database of artists, albums, and songs. <br />
+                Whether you're looking for the latest chart-toppers or the classics, you'll find them all here.
+            </p>
+
+            <p>
+                Our site is perfect for anyone who loves music and wants to discover new artists, albums, and songs. <br />
+                Whether you're a casual listener or a die-hard fan, you'll find something to love on our site. <br /><br />
+                Use it to discover new music, learn more about your favorite artists, or just enjoy the music you already know and love.
+            </p>
+
+            <br />
+            <br />
+
+            <h2>Meet the Team</h2>
+            <h4>/sɛg fɑʊlt/</h4>
+
+            <div class="row">
+                <div style="display:inline-block; width:80%;">
+                    <h4>Swarang Joshi</h4>
+                    <p>Swarang is a web-developer with a passion for all things music.</p>
+
+                    <p>
+                        He is responsible for the design and development of our site,
+                        and works tirelessly to ensure that it is always up-to-date and user-friendly.
+                    </p>
+                    <p>
+                        You can find Swarang on GitHub at jswarang12, or on Instagram at jswarang12.
+                    </p>
+                </div>
+                    <br />
+                    <div id="item"style="margin-left:20%">
+                        <img src="{{ url_for('static', filename="assets/about/swarang.jpg") }}" style="width:400px; height:400px; border-radius: 10px;"/>
+                        <table width="400px">
+                            <tr>
+                                <td><a id="card-link" href="https://github.com/jswarang12"><p style="color:#E0F2E9">GitHub</p></a></td>
+                                <td><a id="card-link" href="https://github.com/jswarang12"><p style="color:#E0F2E9">Instagram</p></a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br />
+                    <br />
+            </div>
+
+            <div class="row">
+                <div style="display:inline-block; width:80%;">
+                    <h4>Hari Shankar</h4>
+                    <p>Hari's just here for the Pizza, honestly.</p>
+
+                </div>
+                    <br />
+                    <div id="item"style="margin-left:20%">
+                        <img src="{{ url_for('static', filename="assets/about/hari.jpg") }}" style="width:400px; height:400px; border-radius: 10px;"/>
+                        <table width="400px">
+                            <tr>
+                                <td><a id="card-link" href="https://github.com/HariShankar08"><p style="color:#E0F2E9">GitHub</p></a></td>
+                                <td><a id="card-link" href="https://github.com/HariShankar08"><p style="color:#E0F2E9">Instagram</p></a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br />
+                    <br />
+            </div>
+
+        </div>
+
+        <footer>
+            <table style="width:100%">
+            <tr>
+                <td>
+                    <p align="left"><b>Created by Swarang J. and Hari S.</b></p>
+                </td>
+                <td>
+                    <p align="right"><a id="menu-link" href="/about">About Us</a></p>
+                </td>
+            </tr>
+            </table>
+
+        </footer>
+    </div>
+{% endblock %}

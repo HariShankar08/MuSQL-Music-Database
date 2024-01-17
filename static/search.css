@@ -1,0 +1,59 @@
+
+#query, #minutes {
+    width: 40%;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border: 3px solid white;
+    border-radius: 50px;
+    padding: 5px;
+    font-size: large;
+}
+
+#query:focus , #minutes:focus {
+    background-color: white;
+    color: black;
+    filter: box-shadow(15px 5px 5px goldenrod)
+}
+
+#allow-explicit, #minute-filter {
+    padding: 25px;
+
+}
+
+#minutes:disabled {
+    background-color: darkgray;
+    color: black;
+}
+
+#query-result {
+    min-height: 35vh;
+    height: auto;
+}
+
+#search-form {
+    padding-bottom: 5vh;
+}
+
+#preview-audio {
+    height:50px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+#res-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+}
+
+#submit {
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+    font-size: large;
+    background-color: blue;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+}

@@ -1,0 +1,14 @@
+.plus_button {
+    border:none;
+    background-color: black;
+    color:white;
+    font-size: larger;
+}
+
+.plus_button:hover {
+    color: red;
+}
+
+.plus_button:disabled {
+    color: gray;
+}

@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% block content %}
+    <div id="page-container">
+        <header>
+            <h1 align="center"><strong>MuSQL: IiIiIT Music Database</strong></h1>
+            <table style="width:100%" style="border-top:1px dotted #4b4b4b">
+                <tr>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/artists">Artists</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" class="highlight" href="/index">Home</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/spotlight">Spotlight</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/playlist">Playlist</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/search">Search</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/about">About</a></p>
+                    </td>
+
+                </tr>
+            </table>
+        </header>
+
+        <div class = "top">
+            <p align="center">Welcome to MuSQL: the IiIiIT Music Database.<br /><sub>It's all lite.</sub></p>
+        </div>
+
+        <div class="content">
+            <div class="top-songs">
+                <h2>Top Songs</h2>
+                <div class="row">
+                    <div class="item">
+                        <a id="card-link" style="display:inline-block"
+                            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                            <img id="card-image" src="{{ url_for('static', filename="assets/index/album-cover1.jpeg") }}" />
+                            <dl>
+                                <dt>
+                                    <p><b>Rick Astley</b></p>
+                                </dt>
+                                <dd>
+                                    <p>Never Gonna Give You Up</p>
+                                </dd>
+                            </dl>
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <a id="card-link" style="display:inline-block"
+                            href="https://www.youtube.com/watch?v=-qee6dFKlw4">
+                            <img id="card-image" src="{{ url_for('static', filename="assets/index/album-cover2.webp") }}" />
+                            <dl>
+                                <dt>
+                                    <p><b>Taylor Swift</b></p>
+                                </dt>
+                                <dd>
+                                    <p>High Infedility</p>
+                                </dd>
+                            </dl>
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <a id="card-link" style="display:inline-block"
+                            href="https://www.youtube.com/watch?v=8Pa9x9fZBtY">
+                            <img id="card-image" src="{{ url_for('static', filename="assets/index/album-cover3.jpg") }}" />
+                            <dl>
+                                <dt>
+                                    <p><b>Dire Straits</b></p>
+                                </dt>
+                                <dd>
+                                    <p>Sultans of Swing</p>
+                                </dd>
+                            </dl>
+                        </a>
+                    </div>
+                </div>
+
+                <p>Or: <a href="/search" style="text-decoration:none; color:white">Search for a song</a></p>
+                <br />
+            </div>
+
+            <h2>Top Artists</h2>
+            <div class="top-artists">
+                <div class="row">
+                    <a id="card-link" style="display:inline-block" href="/albums/2">
+                        <div class="item">
+                            <img id="card-image" src="{{ url_for('static', filename="assets/index/artist2.jpeg") }}" />
+                            <p align="center"><b>SawanoHiroyuki[nZk]</b></p>
+                        </div>
+                    </a>
+                    <a id="card-link" style="display:inline-block" href="/albums/1">
+                        <div class="item">
+                            <img id="card-image" src="{{ url_for('static', filename="assets/index/artist1.jpg") }}" />
+                            <p align="center"><b>ReoNa</b></p>
+                        </div>
+                    </a>
+                    <a id="card-link" style="display:inline-block" href="/albums/3">
+                        <div class="item">
+                            <img id="card-image" src="{{ url_for('static', filename="assets/index/artist3.webp") }}" />
+                            <p align="center"><b>One Direction</b></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <h2>Top Albums</h2>
+            <div class="top-albums">
+                <div class="row">
+                    <div class="item">
+                        <a id="card-link" style="display:inline-block" href="/songs/2/1">
+                            <img id="card-image" src="{{ url_for('static', filename="assets/album/artist2/album1.webp") }}" />
+                            <dl>
+                                <dt>
+                                    <p><b>SawanoHiroyuki[nZk]</b></p>
+                                </dt>
+                                <dd>
+                                    <p>V</p>
+                                </dd>
+                            </dl>
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <a id="card-link" style="display:inline-block" href="/songs/1/3">
+                            <img id="card-image" src="{{ url_for('static', filename="assets/album/artist1/album3.jpg") }}" />
+                            <dl>
+                                <dt>
+                                    <p><b>ReoNa</b></p>
+                                </dt>
+                                <dd>
+                                    <p>Shall we Dance</p>
+                                </dd>
+                            </dl>
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <a id="card-link" style="display:inline-block" href="/songs/2/3">
+                            <img id="card-image" src="{{ url_for('static', filename="assets/album/artist2/album3.jpeg") }}" />
+                            <dl>
+                                <dt>
+                                    <p><b>SawanoHiroyuki[nZk]</b></p>
+                                </dt>
+                                <dd>
+                                    <p>Avid/Hands Up to the Sky</p>
+                                </dd>
+                            </dl>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <p align="left"><b>MuSQL: Created by Swarang J. and Hari S.</b></p>
+                    </td>
+                    <td>
+                        <p align="right"><a id="menu-link" href="/about">About Us</a></p>
+                    </td>
+                </tr>
+            </table>
+
+        </footer>
+    </div>
+{% endblock %}

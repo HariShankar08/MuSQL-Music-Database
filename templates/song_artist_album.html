@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="page-container">
+        <header>
+            <h1 align="center"><strong>MuSQL: IiIiIT Music Database</strong></h1>
+            <table style="width:100%" style="border-top:1px dotted #4b4b4b">
+                <tr>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" class="highlight" href="/artists">Artists</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/index">Home</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/spotlight">Spotlight</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/playlist">Playlist</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/search">Search</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/about">About</a></p>
+                    </td>
+
+                </tr>
+            </table>
+        </header>
+
+        <div class = "top">
+            <p align="center">Welcome to MuSQL: the IiIiIT Music Database.<br /><sub>It's all lite.</sub></p>
+        </div>
+
+        <div class="content">
+            <h2>Songs in Album {{ album_name }}</h2>
+            <h4>Artist: <a style="text-decoration:none; color:white" href="/albums/{{ artist_no }}">{{ artist_name }}</a></h4>
+            <br />
+            <br />
+            <table style="width:80%">
+                {% for song in songs %}
+                <tr>
+                    <td style="width:50%"><p>{{ song[0] }}</p></td>
+                    <td style="width:20%"><p align="right">{{ song[1] }}</p></td>
+                    <td>
+                        {% if song[2] == True %}
+                        <form method="post" action="/p/remove_from_playlist">
+                            <input type="hidden" name="artist_no" value="{{ artist_no }}" />
+                            <input type="hidden" name="album_no" value="{{ album_no }}" />
+                            <input type="hidden" name="song_name" value="{{ song[0] }}" />
+                            <input type="hidden" name="duration" value="{{ song[1] }}">
+                            <button class="plus_button"><i id="plus" class="fa-solid fa-minus"></i></button>
+                        </form>
+                        {% else %}
+                        <form method="post" action="/p/add_to_playlist">
+                            <input type="hidden" name="artist_no" value="{{ artist_no }}" />
+                            <input type="hidden" name="album_no" value="{{ album_no }}" />
+                            <input type="hidden" name="song_name" value="{{ song[0] }}" />
+                            <input type="hidden" name="duration" value="{{ song[1] }}">
+                            <button class="plus_button"><i id="plus" class="fa-solid fa-plus"></i></button>
+                        </form>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <footer>
+            <table style="width:100%">
+            <tr>
+                <td>
+                    <p align="left"><b>MuSQL: Created by Swarang J. and Hari S.</b></p>
+                </td>
+                <td>
+                    <p align="right"><a id="menu-link" href="about.html">About Us</a></p>
+                </td>
+            </tr>
+            </table>
+
+        </footer>
+    </div>
+{% endblock %}
+{% block custom_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='songs_artist_album.css') }}" />
+{% endblock %}

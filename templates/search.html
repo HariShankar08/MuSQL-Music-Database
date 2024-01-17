@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+    <div id="page-container">
+        <header>
+            <h1 align="center"><strong>MuSQL: IiIiIT Music Database</strong></h1>
+            <table style="width:100%" style="border-top:1px dotted #4b4b4b">
+                <tr>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" class="highlight" href="/artists">Artists</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/index">Home</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/spotlight">Spotlight</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/playlist">Playlist</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" class="highlight" href="/search">Search</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/about">About</a></p>
+                    </td>
+
+                </tr>
+            </table>
+        </header>
+
+        <div class = "top">
+            <p align="center">Welcome to MuSQL: The IiIiIT Music Database.<br /><sub>It's all lite.</sub></p>
+        </div>
+
+        <div class="content">
+            <h2>Search</h2>
+
+            <div id="form-div">
+                <form id="search-form" onsubmit="search(); return false;">
+                    <input type="text" name="query" id="query" placeholder="Search anything..." required />
+                    <br />
+                    <p>Allow Explicit Entries? <input type="checkbox" id="allow-explicit" placeholder="Allow Explicit entries" checked /></p>
+                    <p>Filter on duration? <input type="checkbox" id="minute-filter" placeholder="Filter on duration?" /></p>
+                    <input type="number" id="minutes" placeholder="Max. duration (in minutes)" min="0" disabled />
+                    <br />
+                    <button type="submit" id="submit">Submit</button>
+                </form>
+
+            </div>
+            <div id="query-result">
+            </div>
+
+        </div>
+
+        <footer>
+            <table style="width:100%">
+            <tr>
+                <td>
+                    <p align="left"><b>MuSQL: Created by Swarang J. and Hari S.</b></p>
+                </td>
+                <td>
+                    <p align="right"><a id="menu-link" href="/about">About Us</a></p>
+                </td>
+            </tr>
+            </table>
+
+        </footer>
+    </div>
+{% endblock %}
+{% block custom_js %}
+    <script src="{{ url_for('static', filename="search.js") }}"></script>
+{% endblock %}
+{% block custom_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename="search.css") }}" />
+{% endblock %}

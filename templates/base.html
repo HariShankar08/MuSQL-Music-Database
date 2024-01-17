@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Viewport for responsive web design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>{{ title }} | MuSQL</title>
+    <!-- Meta Description -->
+    <meta name="description" content="{{ description }}">
+    <!-- Recommended favicon format -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename="assets/favicon.png") }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}" />
+    {% block custom_css %}
+    {% endblock %}
+    <!-- Google Fonts CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans&family=Raleway:wght@900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+{% block content %}
+{% endblock %}
+{% block custom_js %}
+{% endblock %}
+    <script src="{{ url_for('static', filename='effects.js') }}"></script>
+</body>
+</html>

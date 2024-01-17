@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="page-container">
+        <header>
+            <h1 align="center"><strong>MuSQL: IiIiIT Music Database</strong></h1>
+            <table style="width:100%" style="border-top:1px dotted #4b4b4b">
+                <tr>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/artists">Artists</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/index">Home</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/spotlight">Spotlight</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" class="highlight" href="/playlist">Playlist</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/search">Search</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/about">About</a></p>
+                    </td>
+
+                </tr>
+            </table>
+        </header>
+
+        <div class = "top">
+            <p align="center">Welcome to MuSQL: the IiIiIT Music Database.<br /><sub>It's all lite.</sub></p>
+        </div>
+
+        <div class="content" style="min-height: 50vh">
+            <h2>Songs in Your Playlist</h2>
+            {% if songs %}
+                <br />
+                <br />
+            <table style="width:80%">
+                {% for elem in songs %}
+                <tr>
+                    <td><img src="{{ url_for('static', filename="assets/album/artist{}/{}".format(elem[0], elem[5])) }}" id="tiny-img"/></td>
+                    <td><p><b>{{ elem[6] }}</b> - {{ elem[7] }}<br / >{{ elem[1] }}; {{ elem[3] }}</p></td>
+                    <td>
+                        <form method="post" action="/p/remove_from_playlist">
+                            <input type="hidden" name="artist_no" value="{{ elem[0] }}" />
+                            <input type="hidden" name="album_no" value="{{ elem[2] }}" />
+                            <input type="hidden" name="song_name" value="{{ elem[6] }}" />
+                            <input type="hidden" name="duration" value="{{ elem[7] }}">
+                            <button class="plus_button"><i id="plus" class="fa-solid fa-minus"></i></button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+                <h4>Huh?</h4>
+                <p>There aren't any songs in this playlist.</p>
+
+                <br />
+                <br />
+                <br />
+                <p>Add some, I guess?<br>Meanwhile, you can play with this button here. It kinda spins.</p>
+                <button id="spinny" onclick="spin()">Click Me!</button>
+            {% endif %}
+        </div>
+
+        <footer>
+            <table style="width:100%">
+            <tr>
+                <td>
+                    <p align="left"><b>MuSQL: Created by Swarang J. and Hari S.</b></p>
+                </td>
+                <td>
+                    <p align="right"><a id="menu-link" href="about.html">About Us</a></p>
+                </td>
+            </tr>
+            </table>
+
+        </footer>
+    </div>
+{% endblock %}
+{% block custom_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='songs_artist_album.css') }}" />
+    <style>
+    #spinny {
+	    border: 2px solid #8f00ff;
+	    background-color: #0f001a;
+	    top: 7px;
+	    border-radius: 6px;
+	    color: white;
+	    font-size: max(1.5vw, 100%);
+	    text-align: center;
+	    padding-top: max(1.5vw, 1%);
+	    padding-bottom: max(1.5vw, 1%);
+	    padding-right: max(1vw, 1.5%);
+	    padding-left: max(1vw, 1.5%);
+
+        transition: transform 1s;
+
+	  }
+
+    #tiny-img {
+        width:100px;
+        height: 100px;
+    }
+    </style>
+{% endblock %}
+{% block custom_js %}
+    <script>
+        let rot = 0;
+
+        function spin() {
+            rot = rot + 1440;
+            document.getElementById("spinny").style.transform = `rotate(${rot}deg)`;
+            return false;
+        }
+    </script>
+{% endblock %}

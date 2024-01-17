@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+    <div id="page-container">
+        <header>
+            <h1 align="center"><strong>MuSQL: IiIiIT Music Database</strong></h1>
+            <table style="width:100%" style="border-top:1px dotted #4b4b4b">
+                <tr>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" class="highlight" href="/artists">Artists</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/index">Home</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/spotlight">Spotlight</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/playlist">Playlist</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/search">Search</a></p>
+                    </td>
+                    <td style="width:16%">
+                        <p align="center"><a id="menu-link" href="/about">About</a></p>
+                    </td>
+
+                </tr>
+            </table>
+        </header>
+
+        <div class = "top">
+            <p align="center">Welcome to MuSQL: the IiIiIT Music Database.<br /><sub>It's all lite.</sub></p>
+        </div>
+        <div class="content">
+            <h2>Our Favourite Artists</h2>
+        </div>
+        <div class="container">
+            <div class="item" style="margin-left:5%">
+                <a id="card-link" style="display:inline-block" href="/albums/2">
+                    <img src="{{ url_for('static', filename="assets/index/artist2.jpeg") }}" style="width: 400px; height: 400px;" alt="Artist 1">
+                    <h4>SawanoHiroyuki[nZk]</h4>
+                </a>
+            </div>
+            <div class="item" style="margin-left:10%">
+                <a id="card-link" style="display:inline-block" href="/albums/1">
+                    <img src="{{ url_for('static', filename="assets/index/artist1.jpg") }}" style="width: 400px; height: 400px;" alt="Artist 1">
+                    <h4>ReoNa</h4>
+                </a>
+            </div>
+            <div class="item" style="margin-left:10%;">
+                <a id="card-link" style="display:inline-block" href="/albums/3">
+                    <img src="{{ url_for('static', filename="assets/index/artist3.webp") }}" style="width: 400px; height: 400px;" alt="Artist 3">
+                    <h4>One Direction</h4>
+                </a>
+            </div>
+            <div class="item" style="margin-left:20%">
+                <a id="card-link" style="display:inline-block" href="/albums/4">
+                    <img src="{{ url_for('static', filename="assets/index/artist4.jpeg") }}" style="width: 400px; height: 400px;" alt="Artist 4">
+                    <h4>The Chainsmokers</h4>
+                </a>
+            </div>
+            <div class="item" style="margin-left:15%">
+                <a id="card-link" style="display:inline-block" href="/albums/5">
+                    <img src="{{ url_for('static', filename="assets/index/artist5.jpeg") }}" style="width: 400px; height: 400px;" alt="Artist 5">
+                    <h4>Pritam Chakraborty</h4>
+                </a>
+            </div>
+        </div>
+        <footer>
+            <table style="width:100%">
+            <tr>
+                <td>
+                    <p align="left"><b>MuSQL: Created by Swarang J. and Hari S.</b></p>
+                </td>
+                <td>
+                    <p align="right"><a id="menu-link" href="/about">About Us</a></p>
+                </td>
+            </tr>
+            </table>
+
+        </footer>
+    </div>
+{% endblock %}
+{% block custom_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='artists.css') }}" />
+{% endblock %}
